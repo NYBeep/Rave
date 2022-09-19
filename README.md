@@ -1,5 +1,5 @@
 Liikmed: Adeele Jago, Kaisa Nigol
 Projekti pealkiri: Trixie Mattel
 Probleem: Ajaplaneerimine
-Lühikirjeldus: To Do list, kus ülesande täitmisel ilmub ekraanile animatsioon.
+Lühikirjeldus: Animeeritud graafikud, kus ilmub ekraanile animatsioon, kui kasutaja on andnud oma hääletuse.
 Trello: 
