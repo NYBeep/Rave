@@ -1,6 +1,7 @@
 import PySimpleGUI as sg
 import os
-#import matplotlib
+import matplotlib
+import matplotlib.pyplot as plt
 from datetime import date
 
 sg.theme('LightBrown2')
@@ -34,25 +35,32 @@ while True:
         #kasutame erinevaid elemente
         paigutus2 = [[sg.Text('Sisesta graafiku andmed', text_color='black', font=("Helvetica", 12))],
                   
-                  [sg.Text('Sisesta graafiku nimetus: ')],
+                  [sg.Text('Sisesta graafiku nimetused: ')],
                   [sg.InputText(key="graafiknimi")],
-                  [sg.Text('Sisesta väärtused (eralda semikoolonitega): ')],
-                  [sg.InputText(key="graafikvaartus")],
+                  [sg.Text('Sisesta x väärtused (eralda semikoolonitega): ')],
+                  [sg.InputText(key="xgraafikvaartus")],
+                  [sg.Text('Sisesta y väärtused (eralda semikoolonitega): ')],
+                  [sg.InputText(key="ygraafikvaartus")],
                   [sg.Text('Hoia meeles, et pead sisestama andmed õiges järjekorras. ', text_color='red', font=("helvetica", 10))],
                   [sg.Text('_' * 80)],
                   [sg.Submit('Salvesta'), sg.Cancel('Välju')]]
    
-        aken = sg.Window('Vajalikud andmed', paigutus2, size=(400,225))
+        aken = sg.Window('Vajalikud andmed', paigutus2, size=(400,275))
         syndmus2, v22rtused2 = aken.read()
         
         graafiknimi = v22rtused2['graafiknimi']
-        graafikvaartus = v22rtused2['graafikvaartus']
+        xgraafikvaartus = v22rtused2['xgraafikvaartus']
+        ygraafikvaartus = v22rtused2['ygraafikvaartus']
         
         #Muudame nimekirja muutujateks
         a = graafiknimi.split(", ")
         print(a)
-        b = graafikvaartus.split("; ")
+        b = xgraafikvaartus.split("; ")
         print(b)
+        c = ygraafikvaartus.split("; ")
+        print(c)
+        
+       
         
         #akna sulgemisel lõpetab programm töö
         if syndmus2 == sg.WIN_CLOSED or syndmus2 == 'Välju':
@@ -60,10 +68,13 @@ while True:
         
         #kui vajutatakse nuppu 'Salvesta', pannakse põhiaken kinni ja avaneb uus aken
         if syndmus2 == 'Salvesta':
-            aken.close()
+             plt.plot(b, c)
+             plt.xlabel(a[0])
+             plt.ylabel(a[1])
+             plt.show()
             
-            print(eesnimi, perekonnanimi) 
-            print(graafiknimi, graafikvaartus) 
+#              print(eesnimi, perekonnanimi) 
+#              print(graafiknimi, graafikvaartus) 
             
             
             
