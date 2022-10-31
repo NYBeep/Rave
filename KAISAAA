@@ -36,7 +36,7 @@ while True:
         #loome uue paigutuse uue akna jaoks
         #kasutame erinevaid elemente
         paigutus2 = [[sg.Text('Sisesta graafiku andmed', text_color='black', font=("Helvetica", 12))],
-                  
+                  [sg.Text('KINDLASTI KASUTA TÜHIKUT PEALE KOMASID JA SEMIKOOLONEID! ')],
                   [sg.Text('Sisesta graafiku x- ja y-telje nimetused (eralda komadega): ')],
                   [sg.InputText(key="graafiknimi")],
                   [sg.Text('Sisesta x väärtused (eralda semikoolonitega): ')],
@@ -47,7 +47,7 @@ while True:
                   [sg.Text('_' * 80)],
                   [sg.Submit('Salvesta'), sg.Cancel('Välju')]]
    
-        aken = sg.Window('Vajalikud andmed', paigutus2, size=(400,275))
+        aken = sg.Window('Vajalikud andmed', paigutus2, size=(600,320))
         syndmus2, v22rtused2 = aken.read()
         
         graafiknimi = v22rtused2['graafiknimi']
@@ -95,6 +95,7 @@ while True:
         
         #Uus aken
         paigutus3 = [[sg.Text('Sisesta tulpdiagrammi andmed', text_color='black', font=("Helvetica", 12))],
+                  [sg.Text('KINDLASTI KASUTA TÜHIKUT PEALE KOMASID JA SEMIKOOLONEID! ')],
                   [sg.Text('Sisesta tulpdiagrammi pealkiri: ')],
                   [sg.InputText(key="pealkiritulp")],
                   [sg.Text('Sisesta telgede nimetused (eralda komadega): ')],
@@ -151,6 +152,10 @@ while True:
             #print(nimetused, väärtused, tulbad)
             
             
+            
+            
+            
+            #SEKTORDIAGRAMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMM
     if syndmus == 'Sektordiagramm':
         aken.close()        
          
@@ -161,7 +166,7 @@ while True:
         
         #Uus aken
         paigutus4 = [[sg.Text('Sisesta sektordiagrammi andmed', text_color='black', font=("Helvetica", 12))],
-                  
+                  [sg.Text('KINDLASTI KASUTA TÜHIKUT PEALE KOMASID JA SEMIKOOLONEID! ')],
                   [sg.Text('Sisesta nimetused (eralda komadega): ')],
                   [sg.InputText(key="sektornimetused")],
                   [sg.Text('Sisesta väärtused (eralda semikoolonitega): ')],
@@ -170,7 +175,7 @@ while True:
                   [sg.Text('_' * 80)],
                   [sg.Submit('Salvesta'), sg.Cancel('Välju')]]
         
-        aken = sg.Window('Vajalikud andmed', paigutus4, size=(400,285))
+        aken = sg.Window('Vajalikud andmed', paigutus4, size=(600,250))
         syndmus3, v22rtused3 = aken.read()
         
         sektornimetused = v22rtused3['sektornimetused']
@@ -191,13 +196,13 @@ while True:
         if syndmus3 == 'Salvesta':
             y = np.array(b2int)
             mylabels = a2
-            mycolors = ["black", "hotpink", "b", "#4CAF50"]
+            mycolors = ["black", "hotpink", "b", "#4CAF50", "green", "orange"]
 
             plt.pie(y, labels = mylabels, colors = mycolors)
             
             plt.show() 
             
             print(eesnimi, perekonnanimi)
-            print(sektornimetused, sektorväärtused, sektoreid)
+            print(sektornimetused, sektorväärtused)
         
 aken.close()
